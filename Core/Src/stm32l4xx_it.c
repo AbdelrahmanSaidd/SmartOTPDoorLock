@@ -55,7 +55,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-
+extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -199,17 +199,26 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles PVD/PVM1/PVM2/PVM3/PVM4 interrupts through EXTI lines 16/35/36/37/38.
+  * @brief This function handles USART2 global interrupt.
   */
-void PVD_PVM_IRQHandler(void)
+void USART2_IRQHandler(void)
 {
-  /* USER CODE BEGIN PVD_PVM_IRQn 0 */
+  /* USER CODE BEGIN USART2_IRQn 0 */
+	uint8_t correct;
+  /* USER CODE END USART2_IRQn 0 */
+  HAL_UART_IRQHandler(&huart2);
+  /* USER CODE BEGIN USART2_IRQn 1 */
+	HAL_UART_Receive(&huart2,&correct,1,100);
 
-  /* USER CODE END PVD_PVM_IRQn 0 */
-  HAL_PWREx_PVD_PVM_IRQHandler();
-  /* USER CODE BEGIN PVD_PVM_IRQn 1 */
-
-  /* USER CODE END PVD_PVM_IRQn 1 */
+	if(correct)
+	{
+		HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+	}
+	else
+	{
+		HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+	}
+  /* USER CODE END USART2_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
