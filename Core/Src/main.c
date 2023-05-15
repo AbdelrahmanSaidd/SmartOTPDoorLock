@@ -31,6 +31,15 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define c1 GPIO_PIN_5
+#define c2 GPIO_PIN_1
+#define c3 GPIO_PIN_6
+#define c4 GPIO_PIN_7
+
+#define r1 GPIO_PIN_11
+#define r2 GPIO_PIN_10
+#define r3 GPIO_PIN_9
+#define r4 GPIO_PIN_8
 
 /* USER CODE END PD */
 
@@ -56,7 +65,9 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+uint8_t a;
+uint8_t password[5];
+int count = 0;
 /* USER CODE END 0 */
 
 /**
@@ -73,6 +84,7 @@ int main(void)
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -87,25 +99,244 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
-	__HAL_UART_ENABLE_IT(&huart2,UART_IT_RXNE);
   /* USER CODE BEGIN 2 */
-	uint8_t pass[5];
-	pass[0] = '1';
-	pass[1] = '2';
-	pass[2] = '3';
-	pass[3] = '4';
-	pass[4] = '5';
+	__HAL_UART_ENABLE_IT(&huart2,UART_IT_RXNE);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+	
   while (1)
   {
     /* USER CODE END WHILE */
-		HAL_UART_Transmit(&huart2,pass,sizeof(pass),100);
-		HAL_Delay(5000);
+
     /* USER CODE BEGIN 3 */
-  }
+		//Column 1
+HAL_GPIO_WritePin (GPIOA, c1, GPIO_PIN_RESET); //Pull the C1 low
+HAL_GPIO_WritePin (GPIOA, c2, GPIO_PIN_SET);  // Pull the C2 High
+HAL_GPIO_WritePin (GPIOA, c3, GPIO_PIN_SET);  // Pull the C3 High
+HAL_GPIO_WritePin (GPIOA, c4, GPIO_PIN_SET);  // Pull the C4 High
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r1)))   // if row 1 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r1)));   // wait till the button is pressed
+	a='1';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+		
+//return '1';
+}
+if (!(HAL_GPIO_ReadPin (GPIOA, r2)))   // if row 2 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r2)));   // wait till the button is pressed
+	a='4';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+//return '4';
+}
+if (!(HAL_GPIO_ReadPin (GPIOA, r3)))   // if row 3 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r3)));   // wait till the button is pressed
+	a='7';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+//return '7';
+}
+if (!(HAL_GPIO_ReadPin (GPIOA, r4)))   // if row 4 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r4)));   // wait till the button is pressed
+	a='0';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+	//return '0';
+}
+
+//Column 2
+HAL_GPIO_WritePin (GPIOA, c1, GPIO_PIN_SET); //Pull the C1 High
+HAL_GPIO_WritePin (GPIOA, c2, GPIO_PIN_RESET);  // Pull the C2 Low
+HAL_GPIO_WritePin (GPIOA, c3, GPIO_PIN_SET);  // Pull the C3 High
+HAL_GPIO_WritePin (GPIOA, c4, GPIO_PIN_SET);  // Pull the C4 High
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r1)))   // if row 1 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r1)));   // wait till the button is pressed
+	a='2';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+//return '2';
+}
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r2)))   // if row 2 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r2)));   // wait till the button is pressed
+	a='5';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+	//return '5';
+}
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r3)))   // if row 3 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r3)));   // wait till the button is pressed
+	a='8';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+	//return '8';
+}
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r4)))   // if row 4 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r4)));   // wait till the button is pressed
+	a='F';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+	//return 'F';
+}
+
+////Column 3
+HAL_GPIO_WritePin (GPIOA, c1, GPIO_PIN_SET); //Pull the C1 High
+HAL_GPIO_WritePin (GPIOA, c2, GPIO_PIN_SET);  // Pull the C2 High
+HAL_GPIO_WritePin (GPIOA, c3, GPIO_PIN_RESET);  // Pull the C3 Low
+HAL_GPIO_WritePin (GPIOA, c4, GPIO_PIN_SET);  // Pull the C4 High
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r1)))   // if row 1 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r1)));   // wait till the button is pressed
+	a='3';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+	//return '3';
+}
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r2)))   // if row 2 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r2)));   // wait till the button is pressed
+	a='6';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+	//return '6';
+}
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r3)))   // if row 3 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r3)));   // wait till the button is pressed
+	a='9';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+	//return '9';
+}
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r4)))   // if row 4 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r4)));   // wait till the button is pressed
+	a='E';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+	//return 'E';
+}
+//Column 4
+HAL_GPIO_WritePin (GPIOA, c1, GPIO_PIN_SET); //Pull the C1 High
+HAL_GPIO_WritePin (GPIOA, c2, GPIO_PIN_SET);  // Pull the C2 High
+HAL_GPIO_WritePin (GPIOA, c3, GPIO_PIN_SET);  // Pull the C3 High
+HAL_GPIO_WritePin (GPIOA, c4, GPIO_PIN_RESET);  // Pull the C4 Low
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r1)))   // if row 1 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r1)));   // wait till the button is pressed
+	a='A';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+//return 'A';
+}
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r2)))   // if row 2 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r2)));   // wait till the button is pressed
+	a='B';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+//return 'B';
+}
+
+if (!(HAL_GPIO_ReadPin (GPIOA, r3)))   // if row 3 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r3)));   // wait till the button is pressed
+	a='C';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+//return 'C';
+}
+if (!(HAL_GPIO_ReadPin (GPIOA, r4)))   // if row 4 is low
+{
+	while (!(HAL_GPIO_ReadPin (GPIOA, r4)));   // wait till the button is pressed
+	a='D';
+	if(count < 5)
+	{
+		password[count]=a;
+		count++;
+	}
+//return 'D';
+}
+HAL_Delay(100);
+//HAL_UART_Transmit(&huart2,&a ,sizeof(a),100);
+ 
+if(count >= 5)
+{
+	count = 0;
+//	HAL_UART_Transmit(&huart2,&password[0] ,sizeof(password[0]),100);
+//	HAL_UART_Transmit(&huart2,&password[1] ,sizeof(password[1]),100);
+//	HAL_UART_Transmit(&huart2,&password[2] ,sizeof(password[2]),100);
+//	HAL_UART_Transmit(&huart2,&password[3] ,sizeof(password[3]),100);
+//	HAL_UART_Transmit(&huart2,&password[4] ,sizeof(password[4]),100);
+	HAL_UART_Transmit(&huart2,password,sizeof(password),100);
+	HAL_Delay(5000);
+}
+	}
   /* USER CODE END 3 */
 }
 
@@ -214,13 +445,22 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6
+                          |GPIO_PIN_7, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PA4 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  /*Configure GPIO pins : PA1 PA4 PA5 PA6
+                           PA7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6
+                          |GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PA8 PA9 PA10 PA11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
