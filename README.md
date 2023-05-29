@@ -30,12 +30,6 @@ The Src files includes the code used to interact with the diffrent periphals and
 
 
 
-## Connections
-![image](https://github.com/shalan/CSCE4301-WiKi/assets/64151548/03afd632-cc64-4582-a3fa-8a4e4d2ecbde)
-![WhatsApp Image 2023-05-29 at 9 46 33 AM](https://github.com/AbdelrahmanSaidd/SmartOTPDoorLock/assets/64090007/f8bff5e1-75e6-4142-a9fd-df05f48f9c2d)
-![WhatsApp Image 2023-05-29 at 9 46 33 AM (2)](https://github.com/AbdelrahmanSaidd/SmartOTPDoorLock/assets/64090007/61909232-490f-4264-8fe5-a77b814f3791)
-![WhatsApp Image 2023-05-29 at 9 46 33 AM (1)](https://github.com/AbdelrahmanSaidd/SmartOTPDoorLock/assets/64090007/f0b8dd0b-0409-442c-9f43-7030ac99c9c7)
-
 * LCD: Connected to I2C1
 * Bluetooth module: Connected to UART2
 * Alarm: Connected to PB0 GPIO output pin
