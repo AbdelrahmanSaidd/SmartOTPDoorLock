@@ -15,20 +15,6 @@ Our proposed project aims to digitalize home locks. Traditional systems often re
 The Inc file includes all the header files needed for the project.
 The Src files includes the code used to interact with the diffrent periphals and store the pasword, and the needed libraries for the HAL interface and Liquid Crystal for the LCD.
 
-## Components
-| System Components |
-| :---: |
-| STM32 Nucleo-32: STM32L432KC |
-| USB |
-| Wires |
-| Keypad |
-| Buzzer |
-| LCD (I2C) |
-| Servo Motor (SG-90) |
-| Zener Diode |
-
-
-
 
 * LCD: Connected to I2C1
 * Bluetooth module: Connected to UART2
