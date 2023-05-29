@@ -10,7 +10,10 @@ Our proposed project aims to digitalize home locks. Traditional systems often re
 * Liquid Crystal Library for I2C LED
 * HAL library
 
+#Repo
 
+The Inc file includes all the header files needed for the project.
+The Src files includes the code used to interact with the diffrent periphals and store the pasword, and the needed libraries for the HAL interface and Liquid Crystal for the LCD.
 
 ## Components
 | System Components |
