@@ -48,3 +48,15 @@ Our proposed project aims to solve the problem of security and convenience home 
 
 https://github.com/shalan/CSCE4301-WiKi/assets/64090007/8c91b349-8259-4ccd-81e5-50d0ed3ea058
 
+
+
+## Connections
+![image](https://github.com/shalan/CSCE4301-WiKi/assets/64151548/03afd632-cc64-4582-a3fa-8a4e4d2ecbde)
+
+
+* LCD: Connected to I2C1
+* Bluetooth module: Connected to UART2
+* Alarm: Connected to PB0 GPIO output pin
+* Servo Motor: Connected to TIM1_CH1 (PA8)
+* Keypad: Uses PA12,PA11,PA0,PA4 as inputs and PA5,PA6,PA7,PA1 as outputs
+
