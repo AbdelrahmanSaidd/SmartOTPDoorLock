@@ -38,7 +38,7 @@ Our proposed project aims to solve the problem of security and convenience home 
 * Keypad: Uses PA12,PA11,PA0,PA4 as inputs and PA5,PA6,PA7,PA1 as outputs
 
 ## Setting up the eniroment.
-After making the correct connections. To build the project, create a Keil uVision project containing the header files and the c code to load the code to the target.
+After making the correct connections. To build the project, create a Keil uVision project containing the header files and the c code to load to the target.
 
 ## Interacting with the system
 To use the system, you will need to connect to the bluetooth module, using any bluetooth application. To generate a password, send any character through the bluetooth command line, and a generated password will appear on the LCD. The password can be used only one time through the keypad, after which it will expire and a new password will need to be generated. A master password, which is "12345", is a permanent password that does not expire.
