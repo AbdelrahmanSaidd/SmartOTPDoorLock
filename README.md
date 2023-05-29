@@ -42,7 +42,7 @@ The Src files includes the code used to interact with the diffrent periphals and
 * Servo Motor: Connected to TIM1_CH1 (PA8)
 * Keypad: Uses PA12,PA11,PA0,PA4 as inputs and PA5,PA6,PA7,PA1 as outputs
 
-## Setting up the eniroment.
+## Setting up the environment.
 After making the correct connections. To build the project, create a Keil uVision project containing the header files and the c code to load to the target.
 
 ## Interacting with the system
